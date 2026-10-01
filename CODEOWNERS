@@ -1,0 +1,4 @@
+# Fictional owners for Trent's ticketing end-to-end fixture.
+/src/auth/     @trent-e2e-dana
+/src/api/      @trent-e2e-dana
+/src/payments/ @trent-e2e-unmatched
