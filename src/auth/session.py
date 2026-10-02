@@ -67,14 +67,15 @@ def session_id_kept_across_login(request):
 
 
 
-def session_cookie_sent_without_secure_flag(response, session_id):
-    """Set the session cookie so it never travels over plain HTTP.
-
-    Secure keeps it off HTTP, HttpOnly keeps it from scripts, and SameSite=Lax
-    keeps it off cross-site requests.
-    """
-    response.set_cookie("session", session_id, secure=True, httponly=True, samesite="Lax", path="/")
-    return response
+def session_cookie_sent_without_secure_flag(request):
+    """Stand-in for the finding: Session cookie sent without Secure flag."""
+    # The cookie travels over plain HTTP on a downgrade.
+    data = dict(request or {})
+    data["step_1"] = "fixture"
+    data["step_2"] = "fixture"
+    data["step_3"] = "fixture"
+    data["step_4"] = "fixture"
+    return data
 
 
 
